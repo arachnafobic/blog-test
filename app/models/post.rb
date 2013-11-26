@@ -5,9 +5,9 @@ class Post < ActiveRecord::Base
   validate  :ensure_slug_uniqueness
   validates :title, presence: true, length: { minimum: 5 }
 
-#  def to_param
-#    self.slug
-#  end
+  def to_param
+    [id, title.parameterize].join("-")
+  end
 
   protected
 

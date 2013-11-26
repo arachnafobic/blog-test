@@ -17,7 +17,7 @@ class PostsController < ApplicationController
   def create
     # In Rails 4.x it should be like this:
     # @post = Post.new(params[:post].permit(:title, :text))
-#    @post = Post.new(params[:post])
+    @post = Post.new(params[:post])
     if @post.save
       redirect_to @post
     else
@@ -51,8 +51,8 @@ class PostsController < ApplicationController
   protected
     def find_post
       @post = Post.find(Slug[params[:id]])
-      rescue ActiveRecord::RecordNotFound
-        redirect_to posts_path
+#      rescue ActiveRecord::RecordNotFound
+#        redirect_to posts_path
     end
 
 end
