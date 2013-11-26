@@ -11,7 +11,6 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
-    @post.slug = to_param
   end
 
   def create
@@ -32,6 +31,7 @@ class PostsController < ApplicationController
   def update
     # In Rails 4.x it should be like this:
     # if @post.update(params[:post].permit(:title, :text))
+    @post.slug = to_param
     if @post.update_attributes(params[:post])
       redirect_to @post
     else
@@ -47,8 +47,8 @@ class PostsController < ApplicationController
   protected
     def find_post
       @post = Post.find(Slug[params[:id]])
-#      rescue ActiveRecord::RecordNotFound
-#        redirect_to posts_path
+      rescue ActiveRecord::RecordNotFound
+        redirect_to posts_path
     end
 
 end

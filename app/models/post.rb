@@ -6,10 +6,10 @@ class Post < ActiveRecord::Base
   validates :title, presence: true, length: { minimum: 5 }
 
   def to_param
-#    [id, title.parameterize].join("-")
-#    Slug[self.slug] = [id, title.parameterize].join("-")
-#    self.slug = [id, title.parameterize].join("-")
-    self.slug
+    # [id, title.parameterize].join("-")
+
+    Slug[self.slug] = [id, title.parameterize].join("-")
+    self.slug = [id, title.parameterize].join("-")
   end
 
 

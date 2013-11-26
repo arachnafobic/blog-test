@@ -3,18 +3,17 @@ class PostObserver < ActiveRecord::Observer
     Slug[post.slug] = post.id.to_s
     return true
   end
-
-#  def after_create(post)
-#    Slug[post.slug] = post.id
-#    return true
-#  end
-#  def after_update(post)
-#    Slug[post.slug] = post.id
-#    return true
-#  end
+  def after_create(post)
+    Slug[post.slug] = post.id.to_s
+    return true
+  end
+  def after_update(post)
+    Slug[post.slug] = post.id.to_s
+    return true
+  end
 
   def after_destroy(post)
-    Slug.destroy(post.id)
+    Slug.destroy(post.id.to_s)
     return true
   end
 end
