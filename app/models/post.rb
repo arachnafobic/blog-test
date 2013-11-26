@@ -7,7 +7,9 @@ class Post < ActiveRecord::Base
 
   def to_param
     [id, title.parameterize].join("-")
+#    self.slug = [id, title.parameterize].join("-")
   end
+
 
   protected
 
