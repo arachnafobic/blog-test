@@ -15,7 +15,7 @@
 /tmp
 
 # Ignore server generated assests
-/public/assets
+/public/assets/*
 
 # Added from github's .gitignore for rails
 *.rbc
