@@ -39,3 +39,6 @@ gem 'jquery-rails'
 
 gem 'redis'
 gem 'redis-namespace'
+
+gem 'dalli'
+gem 'cache_digests'

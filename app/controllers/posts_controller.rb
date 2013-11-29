@@ -4,9 +4,11 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    expires_in(60.seconds, public: true)
   end
 
   def show
+    expires_in(60.seconds, public: true)
   end
 
   def new
