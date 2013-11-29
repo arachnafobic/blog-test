@@ -57,6 +57,8 @@ GEM
     mime-types (1.25)
     multi_json (1.8.2)
     polyglot (0.3.3)
+    puma (2.6.0)
+      rack (>= 1.1, < 2.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -116,6 +118,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   dalli
   jquery-rails
+  puma
   rails (= 3.2.13)
   redis
   redis-namespace
