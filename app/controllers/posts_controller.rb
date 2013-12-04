@@ -44,7 +44,12 @@ class PostsController < ApplicationController
 
   protected
     def find_post
-      @post = Post.find(Slug[params[:id]])
+#      @post = Post.find(Slug[params[:id]])
+      if id = Slug[params[:id]]
+        @post = Post.find(id)
+      else
+        @post = Post.find(params[:id])
+      end
       rescue ActiveRecord::RecordNotFound
         redirect_to posts_path
     end
