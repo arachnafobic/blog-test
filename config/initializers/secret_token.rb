@@ -12,6 +12,7 @@
 require 'securerandom'
 
 def secure_token
+  # Rails 3.2 generation
   token_file = Rails.root.join('.secret')
   if File.exist?(token_file)
     # Use the existing token.
@@ -24,4 +25,22 @@ def secure_token
   end
 end
 
+def secure_token4
+  # Rails 4.x generation
+  token_file4 = Rails.root.join('.secret4')
+  if File.exist?(token_file4)
+    # Use the existing token.
+    File.read(token_file4).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token4 = SecureRandom.hex(64)
+    File.write(token_file4, token4)
+    token4
+  end
+
+end
+
+# Old Rails 3.2 Session hash
 BlogTest::Application.config.secret_token = secure_token
+#     Rails 4.x Session hash
+BlogTest::Application.config.secret_key_base = secure_token4
