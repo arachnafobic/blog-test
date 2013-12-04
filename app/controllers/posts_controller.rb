@@ -4,10 +4,12 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+    fresh_when @post, public: true
     expires_in(60.seconds, public: true)
   end
 
   def show
+    fresh_when @post, public: true
     expires_in(60.seconds, public: true)
   end
 
@@ -44,7 +46,6 @@ class PostsController < ApplicationController
 
   protected
     def find_post
-#      @post = Post.find(Slug[params[:id]])
       if id = Slug[params[:id]]
         @post = Post.find(id)
       else
