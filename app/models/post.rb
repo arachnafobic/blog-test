@@ -1,6 +1,6 @@
 class Post < ActiveRecord::Base
   has_many :comments, dependent: :destroy
-  attr_accessible :text, :title
+  include ActiveModel::ForbiddenAttributesProtection
 
   validate :ensure_slug_uniqueness
   validates :title, presence: true, length: { minimum: 5 }

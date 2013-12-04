@@ -16,9 +16,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    # In Rails 4.x it should be like this:
-    # @post = Post.new(params[:post].permit(:title, :text))
-    @post = Post.new(params[:post])
+    @post = Post.new(params[:post].permit(:title, :text))
     @post.slug = to_param
     if @post.save
       redirect_to @post
@@ -31,10 +29,8 @@ class PostsController < ApplicationController
   end
 
   def update
-    # In Rails 4.x it should be like this:
-    # if @post.update(params[:post].permit(:title, :text))
     @post.slug = to_param
-    if @post.update_attributes(params[:post])
+    if @post.update(params[:post].permit(:title, :text))
       redirect_to @post
     else
       render 'edit'

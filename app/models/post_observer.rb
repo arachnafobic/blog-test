@@ -12,7 +12,6 @@ class PostObserver < ActiveRecord::Observer
     return true
   end
   def after_destroy(post)
-#    Slug.destroy(post.id.to_s)
     Slug.destroy(Slug[post.slug])
     return true
   end
