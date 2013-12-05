@@ -19,20 +19,28 @@ gem 'uglifier', '>= 2.3.2'
 
 gem 'jquery-rails'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
+gem 'turbolinks'
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+gem 'jbuilder', '~> 1.2'
+
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
+end
+
+# To use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
+# Use Capistrano for deployment
+# gem 'capistrano', group: :development
+ 
+# Use debugger
+# gem 'debugger', group: [:development, :test]
 
 gem 'puma'
 
