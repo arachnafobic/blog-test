@@ -12,7 +12,8 @@ BlogTest::Application.configure do
   config.serve_static_assets = false
 
   # Compress JavaScripts and CSS
-  config.assets.compress = true
+  # DEPRECATION in Rails 4
+  # config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
   config.assets.compile = false
@@ -41,7 +42,7 @@ BlogTest::Application.configure do
 
   # Use a different cache store in production
   # config.cache_store = :mem_cache_store
-  config.cache_store = :dalli_store
+  config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
@@ -68,4 +69,5 @@ BlogTest::Application.configure do
 
   # Rails 4 additions
   config.eager_load = true
+  config.assets.js_compressor = :uglifier
 end
